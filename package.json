@@ -1,9 +1,11 @@
 {
 	"name": "sortman",
-	"module": "dist/index.ts",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
 	"type": "module",
-	"private": true,
+	"license": "MIT",
 	"scripts": {
+		"build": "npx tsup",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint ."
 	},
@@ -21,6 +23,7 @@
 		"eslint": "^9.25.1",
 		"eslint-config-prettier": "^10.1.2",
 		"prettier": "^3.5.3",
+		"tsup": "^8.4.0",
 		"zod": "^3.24.3"
 	}
 }
