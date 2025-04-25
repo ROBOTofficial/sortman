@@ -20,7 +20,7 @@
 		"check": "npx tsc",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
-		"prepublish": "npm run build",
+		"prepublishOnly": "npm run build",
 		"benchmark": "npm-run-all benchmark:*",
 		"benchmark:sort": "bun run benchmarks/sort.bench.ts"
 	},
