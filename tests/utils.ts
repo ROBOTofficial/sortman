@@ -54,6 +54,10 @@ export const objectArrData = generateObjectArrData({ repeat: 10 });
 
 export const sorts: Sorts = [
 	{
+		name: "Default sort",
+		algorithm: SortMan as unknown as SortBase
+	},
+	{
 		name: "Bogo sort",
 		algorithm: SortMan.bogo
 	},
