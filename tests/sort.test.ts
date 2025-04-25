@@ -3,7 +3,7 @@ import { numArrData, objectArrData, sorts } from "./utils";
 import { sortCheck } from "../src/utils/array";
 
 for (const { name, algorithm, options } of sorts) {
-	if (name !== "Random sort") {
+	if (name !== "Bogo sort") {
 		describe(name, () => {
 			describe("Normal test", () => {
 				test("Number array", () => {

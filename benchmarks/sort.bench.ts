@@ -6,7 +6,7 @@ const numArrData = generateNumArrData();
 const objectArrData = generateObjectArrData();
 
 for (const { name, algorithm } of sorts) {
-	if (name !== "Random sort") {
+	if (name !== "Bogo sort") {
 		compact(() => {
 			group(name, () => {
 				bench("Number array", () => {
