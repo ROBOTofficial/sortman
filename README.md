@@ -1,15 +1,42 @@
 # sortman
 
-To install dependencies:
+Sortman is sort lib in javascript.
 
-```bash
-bun install
+# Usage
+
+```ts
+import { SortMan } from "sortman";
+
+const data = [200, 300, 100];
+
+const sorted = SortMan.sort(data);
+
+console.log(sorted);
 ```
 
-To run:
+```ts
+import { SortMan } from "sortman";
 
-```bash
-bun run index.ts
+const data = [
+	{
+		i: 200
+	},
+	{
+		i: 300
+	},
+	{
+		i: 100
+	}
+];
+
+const sorted = SortMan.sort({
+	arr: data,
+	func: (e) => e.i
+});
+
+console.log(sorted);
 ```
 
-This project was created using `bun init` in bun v1.2.10. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+# Repository
+
+https://github.com/ROBOTofficial/sortman
