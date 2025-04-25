@@ -4,20 +4,23 @@
 	"module": "dist/index.js",
 	"type": "module",
 	"license": "MIT",
-    "version": "0.0.2",
-    "keywords": [ "sort", "sortman" ],
-    "homepage": "https://github.com/ROBOTofficial/sortman",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/ROBOTofficial/sortman.git"
-    },
+	"version": "0.0.2",
+	"keywords": [
+		"sort",
+		"sortman"
+	],
+	"homepage": "https://github.com/ROBOTofficial/sortman",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ROBOTofficial/sortman.git"
+	},
 	"scripts": {
 		"build": "npx tsup",
 		"test": "jest",
 		"check": "npx tsc",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
-        "prepublish": "npm run build",
+		"prepublish": "npm run build",
 		"benchmark": "npm-run-all benchmark:*",
 		"benchmark:sort": "bun run benchmarks/sort.bench.ts"
 	},
