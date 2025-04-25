@@ -1,54 +1,32 @@
 import { describe, expect, test } from "@jest/globals";
-import { SortMan } from "../src/index";
-import { numArrData, objectArrData } from "./utils";
+import { numArrData, objectArrData, sorts } from "./utils";
 import { sortCheck } from "../src/utils/array";
 
-import type { Global } from "@jest/types";
-import type { SortBase } from "../src/Sort/SortBase";
-
-export type SortOptions = {
-	describe?: () => (blockName: Global.BlockNameLike, blockFn: Global.BlockFn) => void;
-};
-
-export type Sort = {
-	name: string;
-	algorithm: SortBase;
-
-	options?: SortOptions;
-};
-
-export type Sorts = Array<Sort>;
-
-const sorts: Sorts = [
-	{
-		name: "Bubble sort",
-		algorithm: SortMan.bubble
-	}
-];
-
 for (const { name, algorithm, options } of sorts) {
-	describe(name, () => {
-		describe("Normal test", () => {
-			test("Number array", () => {
-				const result = algorithm.sort(numArrData);
-				expect(sortCheck(result)).toBe(true);
-			});
-			test("Number array with options", () => {
-				const result = algorithm.sort({
-					arr: numArrData
+	if (name !== "Random sort") {
+		describe(name, () => {
+			describe("Normal test", () => {
+				test("Number array", () => {
+					const result = algorithm.sort(numArrData);
+					expect(sortCheck(result)).toBe(true);
 				});
-				expect(sortCheck(result)).toBe(true);
-			});
-			test("Object array", () => {
-				const result = algorithm.sort({
-					arr: objectArrData,
-					func: (e) => e.num
+				test("Number array with options", () => {
+					const result = algorithm.sort({
+						arr: numArrData
+					});
+					expect(sortCheck(result)).toBe(true);
 				});
-				expect(sortCheck(result.map(({ num }) => num))).toBe(true);
+				test("Object array", () => {
+					const result = algorithm.sort({
+						arr: objectArrData,
+						func: (e) => e.num
+					});
+					expect(sortCheck(result.map(({ num }) => num))).toBe(true);
+				});
 			});
+			if (options && options.describe) {
+				options.describe();
+			}
 		});
-		if (options && options.describe) {
-			options.describe();
-		}
-	});
+	}
 }

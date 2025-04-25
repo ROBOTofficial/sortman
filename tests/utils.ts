@@ -1,24 +1,64 @@
-export const numArrData = [100, 300, 200, 3, 201];
+import { SortMan } from "../src/index";
+import { randomString } from "../src/utils/random";
 
-export const objectArrData = [
+import type { Global } from "@jest/types";
+import type { SortBase } from "../src/Sort/SortBase";
+
+export type ObjectArrData = {
+	num: number;
+	content: string;
+	option: object;
+}[];
+
+export type SortOptions = {
+	describe?: () => (blockName: Global.BlockNameLike, blockFn: Global.BlockFn) => void;
+};
+
+export type Sort = {
+	name: string;
+	algorithm: SortBase;
+
+	options?: SortOptions;
+};
+
+export type Sorts = Array<Sort>;
+
+export type GenerateOptions = {
+	repeat?: number;
+	max?: number;
+};
+
+export const generateNumArrData = (options?: GenerateOptions) => {
+	const result: number[] = [];
+	for (let i = 0; i < (options && options.repeat ? options.repeat : 5000); i++) {
+		result.push(Math.floor(Math.random() * (options && options.max ? options.max : 1000)));
+	}
+	return result;
+};
+
+export const generateObjectArrData = (options?: GenerateOptions) => {
+	const result: ObjectArrData = [];
+	for (let i = 0; i < (options && options.repeat ? options.repeat : 5000); i++) {
+		result.push({
+			num: Math.floor(Math.random() * (options && options.max ? options.max : 1000)),
+			content: randomString(30),
+			option: Math.floor(Math.random() * 2) ? { foo: "bar" } : [100, 200, 300, 400, 500]
+		});
+	}
+	return result;
+};
+
+export const numArrData = generateNumArrData({ repeat: 10 });
+
+export const objectArrData = generateObjectArrData({ repeat: 10 });
+
+export const sorts: Sorts = [
 	{
-		num: 100,
-		content: "hi!"
+		name: "Random sort",
+		algorithm: SortMan.random
 	},
 	{
-		num: 300,
-		content: "hi!!!!"
-	},
-	{
-		num: 200,
-		content: "hi!!"
-	},
-	{
-		num: 3,
-		content: "hi"
-	},
-	{
-		num: 201,
-		content: "hi!!!"
+		name: "Bubble sort",
+		algorithm: SortMan.bubble
 	}
 ];

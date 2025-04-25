@@ -9,7 +9,9 @@
 		"test": "jest",
 		"check": "npx tsc",
 		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint ."
+		"lint": "prettier --check . && eslint .",
+		"benchmark": "npm-run-all benchmark:*",
+		"benchmark:sort": "bun run benchmarks/sort.bench.ts"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.25.1",
@@ -26,8 +28,11 @@
 		"@jest/globals": "^29.7.0",
 		"@jest/types": "^29.6.3",
 		"@types/jest": "^29.5.14",
+		"bun": "^1.2.10",
 		"eslint": "^9.25.1",
 		"eslint-config-prettier": "^10.1.2",
+		"mitata": "^1.0.34",
+		"npm-run-all": "^4.1.5",
 		"prettier": "^3.5.3",
 		"ts-jest": "^29.3.2",
 		"tsup": "^8.4.0",
