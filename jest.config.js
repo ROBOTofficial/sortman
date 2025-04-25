@@ -1,4 +1,4 @@
-import path from "node:path";
+import { join } from "path";
 
 /** @type {import('ts-jest').JestConfigWithTsJest} **/
 export default {
@@ -8,7 +8,7 @@ export default {
 		"^.+.tsx?$": [
 			"ts-jest",
 			{
-				tsconfig: path.join(import.meta.dirname, "jest.tsconfig.json")
+				tsconfig: join(import.meta.dirname, "jest.tsconfig.json")
 			}
 		]
 	},
