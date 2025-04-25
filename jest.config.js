@@ -1,5 +1,3 @@
-import { join } from "node:path";
-
 /** @type {import('ts-jest').JestConfigWithTsJest} **/
 export default {
 	preset: "ts-jest",
@@ -8,7 +6,7 @@ export default {
 		"^.+.tsx?$": [
 			"ts-jest",
 			{
-				tsconfig: join(import.meta.dirname, "jest.tsconfig.json")
+				tsconfig: "jest.tsconfig.json"
 			}
 		]
 	},
