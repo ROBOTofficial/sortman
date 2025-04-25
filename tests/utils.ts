@@ -54,8 +54,8 @@ export const objectArrData = generateObjectArrData({ repeat: 10 });
 
 export const sorts: Sorts = [
 	{
-		name: "Random sort",
-		algorithm: SortMan.random
+		name: "Bogo sort",
+		algorithm: SortMan.bogo
 	},
 	{
 		name: "Bubble sort",

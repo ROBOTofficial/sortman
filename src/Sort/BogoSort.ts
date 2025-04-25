@@ -1,7 +1,7 @@
 import { sortCheck } from "../utils/array";
 import { SortBase, type SortCoreElement } from "./SortBase";
 
-export class RandomSort extends SortBase {
+export class BogoSort extends SortBase {
 	public core<T>(content: SortCoreElement<T>): SortCoreElement<T> {
 		for (;;) {
 			const arr = new Array<SortCoreElement<T>[number]>(content.length);
