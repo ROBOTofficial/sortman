@@ -2,16 +2,25 @@ import { SortBase, type SortCoreElement } from "./SortBase";
 
 export class InsertionSort extends SortBase {
 	public core<T>(content: SortCoreElement<T>): SortCoreElement<T> {
-		for (let i = 1; i < content.length; i++) {
-			const currentVal = content[i] as SortCoreElement<T>[number];
-			let l = i - 1;
-			const element = content[l] as SortCoreElement<T>[number];
-			do {
-				content[l + 1] = element;
-				l--;
-			} while (l >= 0 && element.num > currentVal.num);
-			content[l + 1] = currentVal;
+		const arr: SortCoreElement<T> = [];
+		for (const element of content) {
+			const max = arr[arr.length - 1] as SortCoreElement<T>[number];
+			if (!arr.length) {
+				arr.push(element);
+				continue;
+			}
+			if (max.num <= element.num) {
+				arr.push(element);
+				continue;
+			}
+			for (let i = 0; i < arr.length; i++) {
+				const { num } = arr[i] as SortCoreElement<T>[number];
+				if (element.num <= num) {
+					arr.splice(i, 0, element);
+					break;
+				}
+			}
 		}
-		return content;
+		return arr;
 	}
 }
