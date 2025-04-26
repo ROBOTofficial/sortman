@@ -48,6 +48,9 @@ export abstract class SortBase {
 				});
 			}
 		})() satisfies SortCoreElement<T>;
+		if (elements.length < 2) {
+			return elements.map(({ content }) => content);
+		}
 		return this.core(elements).map(({ content }) => content);
 	}
 	public abstract core<T>(content: SortCoreElement<T>): SortCoreElement<T>;

@@ -1,5 +1,13 @@
 export const dedepulication = <T>(arr: T[]): T[] => Array.from(new Set(arr));
 
+export const inversion = <T>(arr: T[]): T[] => {
+	const result: T[] = [];
+	for (const element of arr) {
+		result.unshift(element);
+	}
+	return result;
+};
+
 export const sortCheck = (arr: number[], desc?: boolean): boolean => {
 	if (!arr.length) return true;
 	for (let i = 0; i < arr.length; i++) {
