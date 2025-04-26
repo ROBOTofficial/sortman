@@ -70,6 +70,10 @@ export const sorts: Sorts = [
 		algorithm: SortMan.quick
 	},
 	{
+		name: "Merge sort",
+		algorithm: SortMan.merge
+	},
+	{
 		name: "Insertion sort",
 		algorithm: SortMan.insertion
 	},
