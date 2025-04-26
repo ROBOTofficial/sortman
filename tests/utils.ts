@@ -64,5 +64,17 @@ export const sorts: Sorts = [
 	{
 		name: "Bubble sort",
 		algorithm: SortMan.bubble
+	},
+	{
+		name: "Quick sort",
+		algorithm: SortMan.quick
+	},
+	{
+		name: "Insertion sort",
+		algorithm: SortMan.insertion
+	},
+	{
+		name: "Selection sort",
+		algorithm: SortMan.selection
 	}
 ];

@@ -4,7 +4,7 @@
 	"module": "dist/index.js",
 	"type": "module",
 	"license": "MIT",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"keywords": [
 		"sort",
 		"sortman"
@@ -20,7 +20,8 @@
 		"check": "npx tsc",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
-		"prepublishOnly": "npm run build",
+		"prepublishOnly": "npm run changesets && npm run build",
+		"changesets": "npx @changesets/cli version",
 		"benchmark": "npm-run-all benchmark:*",
 		"benchmark:sort": "bun run benchmarks/sort.bench.ts"
 	},
@@ -35,6 +36,7 @@
 		"typescript": "^5"
 	},
 	"dependencies": {
+		"@changesets/cli": "^2.29.2",
 		"@eslint/compat": "^1.2.8",
 		"@jest/globals": "^29.7.0",
 		"@jest/types": "^29.6.3",
