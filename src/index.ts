@@ -18,6 +18,10 @@ export class SortMan {
 	public static readonly selection = new SelectionSort();
 
 	public static sort<T>(content: SortElement<T>): T[] {
-		return this.insertion.sort(content);
+		try {
+			return this.merge.sort(content);
+		} catch {
+			return this.insertion.sort(content);
+		}
 	}
 }
