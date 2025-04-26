@@ -14,6 +14,6 @@ export class SortMan {
 	public static readonly selection = new SelectionSort();
 
 	public static sort<T>(content: SortElement<T>): T[] {
-		return this.bubble.sort(content);
+		return this.insertion.sort(content);
 	}
 }
