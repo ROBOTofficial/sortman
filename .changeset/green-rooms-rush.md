@@ -2,4 +2,4 @@
 "sortman": patch
 ---
 
-Fix default sort
+Add options

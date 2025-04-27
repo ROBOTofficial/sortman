@@ -1,9 +1,9 @@
 import { describe, expect, test } from "@jest/globals";
-import { numArrData, objectArrData, sorts } from "./utils";
+import { ignoreSorts, numArrData, objectArrData, sorts } from "./utils";
 import { sortCheck } from "../src/utils/array";
 
 for (const { name, algorithm, options } of sorts) {
-	if (name !== "Bogo sort") {
+	if (!ignoreSorts.includes(name)) {
 		describe(name, () => {
 			describe("Normal test", () => {
 				test("Number array", () => {
@@ -22,6 +22,17 @@ for (const { name, algorithm, options } of sorts) {
 						func: (e) => e.num
 					});
 					expect(sortCheck(result.map(({ num }) => num))).toBe(true);
+				});
+			});
+			describe("Option test", () => {
+				test("Desc", () => {
+					const result = algorithm.sort({
+						arr: numArrData,
+						options: {
+							desc: true
+						}
+					});
+					expect(sortCheck(result, true)).toBe(true);
 				});
 			});
 			if (options && options.describe) {
