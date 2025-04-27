@@ -14,8 +14,10 @@ export const sortCheck = (arr: number[], desc?: boolean): boolean => {
 		const num = arr[i];
 		const next = arr[i + 1];
 		if (num && next) {
-			if (desc && !(num >= next)) {
-				break;
+			if (desc) {
+				if (!(num >= next)) {
+					break;
+				}
 			} else if (!(num <= next)) {
 				break;
 			}

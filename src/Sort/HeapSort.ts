@@ -29,8 +29,8 @@ export class HeapSort extends SortBase {
 		}
 	}
 
-	public core<T>(arr: SortCoreElement<T>): SortCoreElement<T> {
-		arr = arr.slice();
+	public core<T>(content: SortCoreElement<T>): SortCoreElement<T> {
+		const arr = content.concat();
 
 		for (let i: number = Math.floor(arr.length / 2 - 1); i >= 0; i--) {
 			this.shiftDown(arr, i, arr.length);

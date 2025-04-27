@@ -5,6 +5,7 @@ import { InsertionSort } from "./Sort/InsertionSort";
 import { SelectionSort } from "./Sort/SelectionSort";
 import { MergeSort } from "./Sort/MergeSort";
 import { HeapSort } from "./Sort/HeapSort";
+import { ShellSort } from "./Sort/ShellSort";
 
 import type { SortElement } from "./Sort/SortBase";
 
@@ -14,10 +15,15 @@ export class SortMan {
 	public static readonly quick = new QuickSort();
 	public static readonly merge = new MergeSort();
 	public static readonly heap = new HeapSort();
+	public static readonly shell = new ShellSort();
 	public static readonly insertion = new InsertionSort();
 	public static readonly selection = new SelectionSort();
 
 	public static sort<T>(content: SortElement<T>): T[] {
-		return this.insertion.sort(content);
+		try {
+			return this.merge.sort(content);
+		} catch {
+			return this.insertion.sort(content);
+		}
 	}
 }

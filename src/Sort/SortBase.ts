@@ -1,18 +1,20 @@
 import { z } from "zod";
+import { inversion } from "../utils/array";
 
 export type SortOptions = {
-	/** @deprecated */
 	desc?: boolean;
 };
 
 export type SortNumArr = {
 	arr: number[];
-} & SortOptions;
+	options?: SortOptions;
+};
 
 export type SortNotNumArr<T> = {
 	arr: T[];
 	func: (e: T) => number;
-} & SortOptions;
+	options?: SortOptions;
+};
 
 export type SortElement<T> = T extends number ? T[] | SortNumArr : SortNotNumArr<T>;
 
@@ -30,7 +32,17 @@ export abstract class SortBase {
 			return false;
 		}
 	}
+
+	private getOptions<T>(content: SortElement<T>): SortOptions {
+		if (content instanceof Array) {
+			return {};
+		} else {
+			return content.options ?? {};
+		}
+	}
+
 	public sort<T>(content: SortElement<T>): T[] {
+		const options = this.getOptions(content);
 		const elements = (() => {
 			if (content instanceof Array) {
 				return content.map((value) => {
@@ -48,10 +60,18 @@ export abstract class SortBase {
 				});
 			}
 		})() satisfies SortCoreElement<T>;
+
 		if (elements.length < 2) {
 			return elements.map(({ content }) => content);
 		}
-		return this.core(elements).map(({ content }) => content);
+
+		const result = this.core(elements).map(({ content }) => content);
+
+		if (options.desc) {
+			return inversion(result);
+		}
+
+		return result;
 	}
 	public abstract core<T>(content: SortCoreElement<T>): SortCoreElement<T>;
 }

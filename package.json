@@ -4,7 +4,7 @@
 	"module": "dist/index.js",
 	"type": "module",
 	"license": "MIT",
-	"version": "0.0.5",
+	"version": "1.0.0",
 	"keywords": [
 		"sort",
 		"sortman"
@@ -21,7 +21,8 @@
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
 		"prepublishOnly": "npm run changesets && npm run build",
-		"changesets": "npx @changesets/cli version",
+		"changesets": "npx @changesets/cli",
+		"changesets:version": "npx @changesets/cli version",
 		"benchmark": "npm-run-all benchmark:*",
 		"benchmark:sort": "bun run benchmarks/sort.bench.ts"
 	},

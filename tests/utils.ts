@@ -52,6 +52,8 @@ export const numArrData = generateNumArrData({ repeat: 10 });
 
 export const objectArrData = generateObjectArrData({ repeat: 10 });
 
+export const ignoreSorts = ["Default sort", "Bogo sort"] satisfies string[];
+
 export const sorts: Sorts = [
 	{
 		name: "Default sort",
@@ -84,5 +86,9 @@ export const sorts: Sorts = [
 	{
 		name: "Heap sort",
 		algorithm: SortMan.heap
+	},
+	{
+		name: "Shell sort",
+		algorithm: SortMan.shell
 	}
 ];

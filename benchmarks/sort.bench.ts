@@ -1,12 +1,12 @@
 import { bench, compact, group, run } from "mitata";
-import { generateNumArrData, generateObjectArrData, sorts } from "../tests/utils";
+import { generateNumArrData, generateObjectArrData, ignoreSorts, sorts } from "../tests/utils";
 
 const numArrData = generateNumArrData();
 
 const objectArrData = generateObjectArrData();
 
 for (const { name, algorithm } of sorts) {
-	if (name !== "Bogo sort") {
+	if (!ignoreSorts.includes(name)) {
 		compact(() => {
 			group(name, () => {
 				bench("Number array", () => {
