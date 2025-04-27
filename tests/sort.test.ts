@@ -24,6 +24,17 @@ for (const { name, algorithm, options } of sorts) {
 					expect(sortCheck(result.map(({ num }) => num))).toBe(true);
 				});
 			});
+			describe("Option test", () => {
+				test("Desc", () => {
+					const result = algorithm.sort({
+						arr: numArrData,
+						options: {
+							desc: true
+						}
+					});
+					expect(sortCheck(result, true)).toBe(true);
+				});
+			});
 			if (options && options.describe) {
 				options.describe();
 			}
