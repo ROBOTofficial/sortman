@@ -86,5 +86,9 @@ export const sorts: Sorts = [
 	{
 		name: "Heap sort",
 		algorithm: SortMan.heap
+	},
+	{
+		name: "Shell sort",
+		algorithm: SortMan.shell
 	}
 ];
