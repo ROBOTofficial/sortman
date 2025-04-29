@@ -1,5 +1,13 @@
 # sortman
 
+## 2.0.0
+
+### Major Changes
+
+- 050bbd4: Fix sort args type
+- 7855475: Fix readme's code template
+- a9f51ec: Fix benchmark algorithm and test code
+
 ## 1.0.0
 
 ### Major Changes
