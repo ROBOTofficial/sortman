@@ -14,12 +14,12 @@ export class BucketSort extends SortBase {
 			}
 		}
 
-        const result: SortCoreElement<T> = [];
+		const result: SortCoreElement<T> = [];
 
 		for (let i = 0; i < bucket.length; i++) {
 			const elements = bucket[i];
 			if (elements) {
-                result.push(...elements);
+				result.push(...elements);
 			}
 		}
 
