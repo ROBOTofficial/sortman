@@ -90,5 +90,9 @@ export const sorts: Sorts = [
 	{
 		name: "Shell sort",
 		algorithm: SortMan.shell
+	},
+	{
+		name: "Bucket sort",
+		algorithm: SortMan.bucket
 	}
 ];
