@@ -37,8 +37,7 @@ const data = [
 	}
 ];
 
-const sorted = SortMan.sort({
-	arr: data,
+const sorted = SortMan.sort(data, {
 	func: (e) => e.i
 });
 
@@ -67,11 +66,8 @@ import { SortMan } from "sortman";
 
 const data = [200, 300, 100];
 
-const sorted = SortMan.sort({
-	arr: data,
-	options: {
-		desc: true
-	}
+const sorted = SortMan.sort(data, {
+	desc: true
 });
 
 console.log(sorted);
