@@ -54,6 +54,7 @@ console.log(sorted);
 - Quick sort - `SortMan.quick`
 - Selection sort - `SortMan.selection`
 - Shell sort - `SortMan.shell`
+- Bucket sort - `SortMan.bucket`
 
 # Options
 
