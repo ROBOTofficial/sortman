@@ -10,16 +10,27 @@ export class MergeSort extends SortBase {
 		const right = this.core(content.slice(middle));
 		return (() => {
 			const result: SortCoreElement<T> = [];
-			do {
-				const leftElement = left[0] as SortCoreElement<T>[number];
-				const rightElement = right[0] as SortCoreElement<T>[number];
-				if (leftElement.num < rightElement.num) {
-					result.push(left.shift() as SortCoreElement<T>[number]);
+			let i = 0;
+			let l = 0;
+
+			while (i < left.length && l < right.length) {
+				const leftElement = left[i];
+				const rightElement = right[l];
+
+				if (leftElement && rightElement && leftElement.num < rightElement.num) {
+					const element = left[i++];
+					if (element) {
+						result.push(element);
+					}
 				} else {
-					result.push(right.shift() as SortCoreElement<T>[number]);
+					const element = right[l++];
+					if (element) {
+						result.push(element);
+					}
 				}
-			} while (left.length && right.length);
-			return result;
+			}
+
+			return result.concat(left.slice(i)).concat(right.slice(l));
 		})();
 	}
 }
