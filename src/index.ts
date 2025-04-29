@@ -7,7 +7,7 @@ import { MergeSort } from "./Sort/MergeSort";
 import { HeapSort } from "./Sort/HeapSort";
 import { ShellSort } from "./Sort/ShellSort";
 
-import type { SortElement } from "./Sort/SortBase";
+import type { SortOptions } from "./Sort/SortBase";
 
 export class SortMan {
 	public static readonly bogo = new BogoSort();
@@ -19,11 +19,13 @@ export class SortMan {
 	public static readonly insertion = new InsertionSort();
 	public static readonly selection = new SelectionSort();
 
-	public static sort<T>(content: SortElement<T>): T[] {
+	public static sort<T extends number>(arr: T[]): T[];
+	public static sort<T>(arr: T[], options: SortOptions<T>): T[];
+	public static sort<T>(arr: T[], options?: SortOptions<T>): T[] {
 		try {
-			return this.merge.sort(content);
+			return this.merge.sort(arr, options as SortOptions<T>);
 		} catch {
-			return this.insertion.sort(content);
+			return this.insertion.sort(arr, options as SortOptions<T>);
 		}
 	}
 }
