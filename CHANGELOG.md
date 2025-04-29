@@ -1,5 +1,13 @@
 # sortman
 
+## 2.0.2
+
+### Patch Changes
+
+- 69ee4c6: Add description for bucket sort in readme
+- e47d1a9: Fix merge sort's bug
+- 6bea8ab: Change test func
+
 ## 2.0.1
 
 ### Patch Changes
