@@ -1,5 +1,14 @@
 # sortman
 
+## 2.0.1
+
+### Patch Changes
+
+- 4243f8b: Add bucket sort
+- 1d10797: Change prepublishOnly script
+- ae19be8: Add bucket sort test and benchmark
+- bf8de94: Fix default sort
+
 ## 2.0.0
 
 ### Major Changes
