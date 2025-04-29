@@ -13,11 +13,12 @@ for (const { name, algorithm } of sorts) {
 					algorithm.sort(numArrData);
 				});
 				bench("Number array in option", () => {
-					algorithm.sort({ arr: numArrData });
+					algorithm.sort(objectArrData, {
+						func: (e) => e.num
+					});
 				});
 				bench("Object array", () => {
-					algorithm.sort({
-						arr: objectArrData,
+					algorithm.sort(objectArrData, {
 						func: (e) => e.num
 					});
 				});

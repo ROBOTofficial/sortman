@@ -1,27 +1,20 @@
 import { z } from "zod";
 import { inversion } from "../utils/array";
 
-export type SortOptions = {
-	desc?: boolean;
-};
-
-export type SortNumArr = {
-	arr: number[];
-	options?: SortOptions;
-};
-
-export type SortNotNumArr<T> = {
-	arr: T[];
-	func: (e: T) => number;
-	options?: SortOptions;
-};
-
-export type SortElement<T> = T extends number ? T[] | SortNumArr : SortNotNumArr<T>;
-
 export type SortCoreElement<T> = Array<{
 	num: number;
 	content: T;
 }>;
+
+export type SortOptionsFunc<T> = {
+	func: (e: T) => number;
+};
+
+export type SortOptions<T> = (T extends number
+	? Partial<SortOptionsFunc<T>>
+	: Required<SortOptionsFunc<T>>) & {
+	desc?: boolean;
+};
 
 export abstract class SortBase {
 	private isNumArray(arr: unknown): arr is number[] {
@@ -33,30 +26,24 @@ export abstract class SortBase {
 		}
 	}
 
-	private getOptions<T>(content: SortElement<T>): SortOptions {
-		if (content instanceof Array) {
-			return {};
-		} else {
-			return content.options ?? {};
-		}
-	}
-
-	public sort<T>(content: SortElement<T>): T[] {
-		const options = this.getOptions(content);
+	public sort<T extends number>(arr: T[]): T[];
+	public sort<T>(arr: T[], options: SortOptions<T>): T[];
+	public sort<T>(arr: T[], options?: SortOptions<T>): T[] {
 		const elements = (() => {
-			if (content instanceof Array) {
-				return content.map((value) => {
-					return { num: value, content: value as T };
-				});
-			}
-			if (this.isNumArray(content.arr)) {
-				return content.arr.map((value) => {
-					return { num: value, content: value as T };
+			if (this.isNumArray(arr)) {
+				return arr.map((value) => {
+					return {
+						num: (options && options.func ? options.func(value) : value) as number,
+						content: value
+					};
 				});
 			} else {
-				const { arr, func } = content as SortNotNumArr<T>;
+				const { func } = options as SortOptionsFunc<T>;
 				return arr.map((value) => {
-					return { num: func(value), content: value };
+					return {
+						num: func(value),
+						content: value
+					};
 				});
 			}
 		})() satisfies SortCoreElement<T>;
@@ -67,11 +54,12 @@ export abstract class SortBase {
 
 		const result = this.core(elements).map(({ content }) => content);
 
-		if (options.desc) {
+		if (options && options.desc) {
 			return inversion(result);
 		}
 
 		return result;
 	}
+
 	public abstract core<T>(content: SortCoreElement<T>): SortCoreElement<T>;
 }

@@ -11,14 +11,13 @@ for (const { name, algorithm, options } of sorts) {
 					expect(sortCheck(result)).toBe(true);
 				});
 				test("Number array with options", () => {
-					const result = algorithm.sort({
-						arr: numArrData
+					const result = algorithm.sort(numArrData, {
+						func: (e) => e
 					});
 					expect(sortCheck(result)).toBe(true);
 				});
 				test("Object array", () => {
-					const result = algorithm.sort({
-						arr: objectArrData,
+					const result = algorithm.sort(objectArrData, {
 						func: (e) => e.num
 					});
 					expect(sortCheck(result.map(({ num }) => num))).toBe(true);
@@ -26,11 +25,8 @@ for (const { name, algorithm, options } of sorts) {
 			});
 			describe("Option test", () => {
 				test("Desc", () => {
-					const result = algorithm.sort({
-						arr: numArrData,
-						options: {
-							desc: true
-						}
+					const result = algorithm.sort(numArrData, {
+						desc: true
 					});
 					expect(sortCheck(result, true)).toBe(true);
 				});
