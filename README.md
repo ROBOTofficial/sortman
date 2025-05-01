@@ -48,13 +48,14 @@ console.log(sorted);
 
 - Bogo sort - `SortMan.bogo`
 - Bubble sort - `SortMan.bubble`
+- Bucket sort - `SortMan.bucket`
+- Comb sort - `SortMan.comb`
 - Heap sort - `SortMan.heap`
 - Insertion sort - `SortMan.insertion`
 - Merge sort - `SortMan.merge`
 - Quick sort - `SortMan.quick`
 - Selection sort - `SortMan.selection`
 - Shell sort - `SortMan.shell`
-- Bucket sort - `SortMan.bucket`
 
 # Options
 
