@@ -1,0 +1,5 @@
+---
+"sortman": patch
+---
+
+Add combsort
