@@ -7,6 +7,7 @@ import { MergeSort } from "./Sort/MergeSort";
 import { HeapSort } from "./Sort/HeapSort";
 import { ShellSort } from "./Sort/ShellSort";
 import { BucketSort } from "./Sort/BucketSort";
+import { CombSort } from "./Sort/CombSort";
 
 import type { SortOptions } from "./Sort/SortBase";
 
@@ -14,6 +15,7 @@ export class SortMan {
 	public static readonly bogo = new BogoSort();
 	public static readonly bubble = new BubbleSort();
 	public static readonly bucket = new BucketSort();
+	public static readonly comb = new CombSort();
 	public static readonly quick = new QuickSort();
 	public static readonly merge = new MergeSort();
 	public static readonly heap = new HeapSort();
