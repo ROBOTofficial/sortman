@@ -1,5 +1,12 @@
 # sortman
 
+## 2.0.3
+
+### Patch Changes
+
+- 781900f: Change property to alphabetical order
+- ead974a: Add combsort
+
 ## 2.0.2
 
 ### Patch Changes
