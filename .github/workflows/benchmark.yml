@@ -1,18 +1,25 @@
 name: Benchmark
 
 on:
-  pull_request:
+  push:
     branches:
       - main
-      - version*
 
 jobs:
   benchmark:
+    name: Benchmark
+
+    permissions:
+      pull-requests: write
+      contents: write
+
     timeout-minutes: 1200
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        node: ["18.20.8", "20.x", "22.x"]
+        node: ["18.x", "20.x", "22.x"]
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -23,4 +30,10 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - run: npm install
-      - run: npm run benchmark
+
+      - name: Print
+        uses: ROBOTofficial/print@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          output-file: ./v${{ matrix.node }}/benchmark.log
+          run: npm run benchmark
