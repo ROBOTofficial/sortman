@@ -8,6 +8,7 @@ import { HeapSort } from "./Sort/HeapSort";
 import { ShellSort } from "./Sort/ShellSort";
 import { BucketSort } from "./Sort/BucketSort";
 import { CombSort } from "./Sort/CombSort";
+import { GnomeSort } from "./Sort/GnomeSort";
 
 import type { SortOptions } from "./Sort/SortBase";
 
@@ -16,6 +17,7 @@ export class SortMan {
 	public static readonly bubble = new BubbleSort();
 	public static readonly bucket = new BucketSort();
 	public static readonly comb = new CombSort();
+	public static readonly gnome = new GnomeSort();
 	public static readonly heap = new HeapSort();
 	public static readonly insertion = new InsertionSort();
 	public static readonly merge = new MergeSort();
@@ -27,7 +29,7 @@ export class SortMan {
 	public static sort<T>(arr: T[], options: SortOptions<T>): T[];
 	public static sort<T>(arr: T[], options?: SortOptions<T>): T[] {
 		try {
-			return this.quick.sort(arr, options as SortOptions<T>);
+			return this.bucket.sort(arr, options as SortOptions<T>);
 		} catch {
 			return this.insertion.sort(arr, options as SortOptions<T>);
 		}

@@ -98,5 +98,9 @@ export const sorts: Sorts = [
 	{
 		name: "Comb sort",
 		algorithm: SortMan.comb
+	},
+	{
+		name: "Gnome sort",
+		algorithm: SortMan.gnome
 	}
 ];
