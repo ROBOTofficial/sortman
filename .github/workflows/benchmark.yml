@@ -33,7 +33,7 @@ jobs:
       - run: npm install
 
       - name: Print
-        uses: ROBOTofficial/print@1
+        uses: ROBOTofficial/print
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           output-file: ./benchmark.log
