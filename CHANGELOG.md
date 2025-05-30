@@ -1,5 +1,12 @@
 # sortman
 
+## 2.0.4
+
+### Patch Changes
+
+- 8e7e011: Add gnome sort
+- 4bf9096: change default sort (quick -> bucket)
+
 ## 2.0.3
 
 ### Patch Changes
