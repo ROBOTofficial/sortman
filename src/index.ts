@@ -29,7 +29,7 @@ export class SortMan {
 	public static sort<T>(arr: T[], options: SortOptions<T>): T[];
 	public static sort<T>(arr: T[], options?: SortOptions<T>): T[] {
 		try {
-			return this.quick.sort(arr, options as SortOptions<T>);
+			return this.bucket.sort(arr, options as SortOptions<T>);
 		} catch {
 			return this.insertion.sort(arr, options as SortOptions<T>);
 		}
