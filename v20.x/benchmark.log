@@ -1,0 +1,73 @@
+
+> sortman@2.0.4 benchmark
+> npm-run-all benchmark:*
+
+
+> sortman@2.0.4 benchmark:sort
+> bun run benchmarks/sort.bench.ts
+
+[90mclk: ~1.58 GHz[0m
+[90mcpu: AMD EPYC 7763 64-Core Processor[0m
+[90mruntime: bun 1.2.15 (x64-linux)[0m
+
+benchmark                   avg (min … max) p75 / p99    (min … top 1%)
+------------------------------------------- -------------------------------
+• Bubble sort
+[90m------------------------------------------- -------------------------------[0m
+Number array                 [1m[33m 26.99 ms[0m[1m/iter[0m [90m 26.66 ms  30.52 ms[0m [36m▇█▇[0m[33m▃[0m[35m▂▁▁▁▁▁▃[0m
+Number array in option       [1m[33m 38.68 ms[0m[1m/iter[0m [90m 38.15 ms  44.79 ms[0m [36m▂█▇[0m[33m▂[0m[35m▂▁▁▁▁▁▂[0m
+Object array                 [1m[33m 38.26 ms[0m[1m/iter[0m [90m 38.27 ms  43.68 ms[0m [36m██[0m[33m▆[0m[35m▅▁▁▁▁▁▁▃[0m
+
+• Quick sort
+[90m------------------------------------------- -------------------------------[0m
+Number array                 [1m[33m  3.26 ms[0m[1m/iter[0m [90m  3.84 ms   5.81 ms[0m [36m█▅▃[0m[33m▃[0m[35m▃▄▂▂▁▁▁[0m
+Number array in option       [1m[33m  5.02 ms[0m[1m/iter[0m [90m  5.43 ms   7.01 ms[0m [36m▄█▆█[0m[33m█[0m[35m█▃▃▂▁▁[0m
+Object array                 [1m[33m  5.13 ms[0m[1m/iter[0m [90m  5.56 ms   7.21 ms[0m [36m▂▅██[0m[33m▇[0m[35m▇▃▂▂▂▂[0m
+
+• Merge sort
+[90m------------------------------------------- -------------------------------[0m
+Number array                 [1m[33m  2.15 ms[0m[1m/iter[0m [90m  2.27 ms   3.07 ms[0m [36m█▅[0m[33m▂[0m[35m▂▁▁▂▃▂▁▁[0m
+Number array in option       [1m[33m  4.33 ms[0m[1m/iter[0m [90m  4.71 ms   5.81 ms[0m [36m▄▆█▆[0m[33m▆[0m[35m█▅▆▂▁▂[0m
+Object array                 [1m[33m  4.37 ms[0m[1m/iter[0m [90m  4.79 ms   6.36 ms[0m [36m▅█▆[0m[33m▅[0m[35m▆▆▃▂▂▂▁[0m
+
+• Insertion sort
+[90m------------------------------------------- -------------------------------[0m
+Number array                 [1m[33m  9.04 ms[0m[1m/iter[0m [90m  8.42 ms  22.64 ms[0m [36m█[0m[33m▂[0m[35m▁▁▁▁▁▁▁▁▁[0m
+Number array in option       [1m[33m  9.92 ms[0m[1m/iter[0m [90m 10.04 ms  12.01 ms[0m [36m▄█▇[0m[33m▂[0m[35m▁▂▁▂▂▂▂[0m
+Object array                 [1m[33m 10.09 ms[0m[1m/iter[0m [90m 10.38 ms  12.32 ms[0m [36m▃█▂[0m[33m▁[0m[35m▁▁▁▂▂▂▁[0m
+
+• Selection sort
+[90m------------------------------------------- -------------------------------[0m
+Number array                 [1m[33m 17.01 ms[0m[1m/iter[0m [90m 17.17 ms  17.57 ms[0m [36m▄▆▆▂▄[0m[33m█[0m[35m▆▄▂▂▄[0m
+Number array in option       [1m[33m 18.94 ms[0m[1m/iter[0m [90m 19.31 ms  20.81 ms[0m [36m▅▆█[0m[33m▃[0m[35m▁▃▁▁▃▃▃[0m
+Object array                 [1m[33m 18.87 ms[0m[1m/iter[0m [90m 19.20 ms  21.00 ms[0m [36m▆█▃[0m[33m▂[0m[35m▂▁▂▂▂▄▂[0m
+
+• Heap sort
+[90m------------------------------------------- -------------------------------[0m
+Number array                 [1m[33m925.41 µs[0m[1m/iter[0m [90m948.47 µs   1.51 ms[0m [36m█[0m[33m▄[0m[35m▃▁▁▁▁▁▁▁▁[0m
+Number array in option       [1m[33m  2.86 ms[0m[1m/iter[0m [90m  3.09 ms   4.76 ms[0m [36m█▇[0m[33m▆[0m[35m▃▃▂▂▃▁▁▁[0m
+Object array                 [1m[33m  2.84 ms[0m[1m/iter[0m [90m  3.03 ms   5.00 ms[0m [36m██[0m[33m▅[0m[35m▃▃▂▂▂▁▁▁[0m
+
+• Shell sort
+[90m------------------------------------------- -------------------------------[0m
+Number array                 [1m[33m827.38 µs[0m[1m/iter[0m [90m816.10 µs   1.38 ms[0m [36m█[0m[33m▄[0m[35m▃▁▁▁▁▁▁▁▁[0m
+Number array in option       [1m[33m  2.76 ms[0m[1m/iter[0m [90m  2.98 ms   4.44 ms[0m [36m█▇▆[0m[33m▃[0m[35m▃▁▂▂▂▂▁[0m
+Object array                 [1m[33m  2.82 ms[0m[1m/iter[0m [90m  2.94 ms   4.90 ms[0m [36m▇█[0m[33m▅[0m[35m▃▂▂▂▂▁▁▁[0m
+
+• Bucket sort
+[90m------------------------------------------- -------------------------------[0m
+Number array                 [1m[33m640.38 µs[0m[1m/iter[0m [90m612.09 µs   1.50 ms[0m [36m█[0m[33m▃[0m[35m▂▁▁▁▁▁▁▁▁[0m
+Number array in option       [1m[33m  2.59 ms[0m[1m/iter[0m [90m  2.86 ms   4.23 ms[0m [36m██▅[0m[33m▄[0m[35m▃▂▂▃▂▂▁[0m
+Object array                 [1m[33m  2.65 ms[0m[1m/iter[0m [90m  2.96 ms   4.87 ms[0m [36m▇█[0m[33m▄[0m[35m▄▂▂▂▂▁▁▁[0m
+
+• Comb sort
+[90m------------------------------------------- -------------------------------[0m
+Number array                 [1m[33m921.47 µs[0m[1m/iter[0m [90m926.61 µs   1.49 ms[0m [36m█[0m[33m▄[0m[35m▃▂▁▁▁▁▁▁▁[0m
+Number array in option       [1m[33m  2.84 ms[0m[1m/iter[0m [90m  3.06 ms   4.72 ms[0m [36m▇█[0m[33m▆[0m[35m▄▃▂▃▂▂▁▁[0m
+Object array                 [1m[33m  2.81 ms[0m[1m/iter[0m [90m  2.98 ms   5.01 ms[0m [36m█▇[0m[33m▄[0m[35m▃▂▂▃▁▁▁▁[0m
+
+• Gnome sort
+[90m------------------------------------------- -------------------------------[0m
+Number array                 [1m[33m 37.87 ms[0m[1m/iter[0m [90m 37.79 ms  37.96 ms[0m [36m▆█▆▃▆▃▃[0m[33m▁[0m[35m▁▃▃[0m
+Number array in option       [1m[33m 40.07 ms[0m[1m/iter[0m [90m 41.14 ms  41.43 ms[0m [36m▃█▅▁▃[0m[33m▁[0m[35m▁▃▁▃▆[0m
+Object array                 [1m[33m 39.86 ms[0m[1m/iter[0m [90m 40.13 ms  41.39 ms[0m [36m█▂▁▁[0m[33m▃[0m[35m▂▂▁▁▁▃[0m
