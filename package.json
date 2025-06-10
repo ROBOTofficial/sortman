@@ -40,7 +40,7 @@
 		"@changesets/cli": "^2.29.2",
 		"@eslint/compat": "^1.2.8",
 		"@jest/globals": "^29.7.0",
-		"@jest/types": "^29.6.3",
+		"@jest/types": "^30.0.0",
 		"@types/jest": "^29.5.14",
 		"bun": "^1.2.10",
 		"eslint": "^9.25.1",
