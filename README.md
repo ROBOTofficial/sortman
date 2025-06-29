@@ -50,6 +50,7 @@ console.log(sorted);
 - Bubble sort - `SortMan.bubble`
 - Bucket sort - `SortMan.bucket`
 - Comb sort - `SortMan.comb`
+- Gnome sort - `SortMan.gnome`
 - Heap sort - `SortMan.heap`
 - Insertion sort - `SortMan.insertion`
 - Merge sort - `SortMan.merge`
