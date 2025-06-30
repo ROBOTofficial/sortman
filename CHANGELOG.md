@@ -1,5 +1,15 @@
 # sortman
 
+## 2.1.0
+
+### Minor Changes
+
+- f2d10d2: feat: update package.json and tsup.config.ts for improved module exports and build configuration
+
+### Patch Changes
+
+- ae7c9a2: change: add "files" field to package.json
+
 ## 2.0.4
 
 ### Patch Changes
