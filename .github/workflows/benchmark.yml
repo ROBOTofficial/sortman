@@ -35,4 +35,5 @@ jobs:
           bun-version: latest
 
       - run: bun install
+      - run: npm run build
       - run: npm run benchmark
