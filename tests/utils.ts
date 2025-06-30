@@ -1,5 +1,6 @@
 import { SortMan } from "../src/index";
 import { randomString } from "../src/utils/random";
+import { SortMan as TranspiledSortMan } from "../dist/index.cjs";
 
 import type { Global } from "@jest/types";
 import type { SortBase } from "../src/Sort/SortBase";
@@ -12,6 +13,7 @@ export type ObjectArrData = {
 
 export type SortOptions = {
 	describe?: () => (blockName: Global.BlockNameLike, blockFn: Global.BlockFn) => void;
+	transpiled?: SortBase;
 };
 
 export type Sort = {
@@ -57,50 +59,86 @@ export const ignoreSorts = ["Default sort", "Bogo sort"] satisfies string[];
 export const sorts: Sorts = [
 	{
 		name: "Default sort",
-		algorithm: SortMan as unknown as SortBase
+		algorithm: SortMan as unknown as SortBase,
+		options: {
+			transpiled: TranspiledSortMan as unknown as SortBase
+		}
 	},
 	{
 		name: "Bogo sort",
-		algorithm: SortMan.bogo
+		algorithm: SortMan.bogo,
+		options: {
+			transpiled: TranspiledSortMan.bogo as unknown as SortBase
+		}
 	},
 	{
 		name: "Bubble sort",
-		algorithm: SortMan.bubble
+		algorithm: SortMan.bubble,
+		options: {
+			transpiled: TranspiledSortMan.bubble as unknown as SortBase
+		}
 	},
 	{
 		name: "Quick sort",
-		algorithm: SortMan.quick
+		algorithm: SortMan.quick,
+		options: {
+			transpiled: TranspiledSortMan.quick as unknown as SortBase
+		}
 	},
 	{
 		name: "Merge sort",
-		algorithm: SortMan.merge
+		algorithm: SortMan.merge,
+		options: {
+			transpiled: TranspiledSortMan.merge as unknown as SortBase
+		}
 	},
 	{
 		name: "Insertion sort",
-		algorithm: SortMan.insertion
+		algorithm: SortMan.insertion,
+		options: {
+			transpiled: TranspiledSortMan.insertion as unknown as SortBase
+		}
 	},
 	{
 		name: "Selection sort",
-		algorithm: SortMan.selection
+		algorithm: SortMan.selection,
+		options: {
+			transpiled: TranspiledSortMan.selection as unknown as SortBase
+		}
 	},
 	{
 		name: "Heap sort",
-		algorithm: SortMan.heap
+		algorithm: SortMan.heap,
+		options: {
+			transpiled: TranspiledSortMan.heap as unknown as SortBase
+		}
 	},
 	{
 		name: "Shell sort",
-		algorithm: SortMan.shell
+		algorithm: SortMan.shell,
+		options: {
+			transpiled: TranspiledSortMan.shell as unknown as SortBase
+		}
 	},
 	{
 		name: "Bucket sort",
-		algorithm: SortMan.bucket
+		algorithm: SortMan.bucket,
+		options: {
+			transpiled: TranspiledSortMan.bucket as unknown as SortBase
+		}
 	},
 	{
 		name: "Comb sort",
-		algorithm: SortMan.comb
+		algorithm: SortMan.comb,
+		options: {
+			transpiled: TranspiledSortMan.comb as unknown as SortBase
+		}
 	},
 	{
 		name: "Gnome sort",
-		algorithm: SortMan.gnome
+		algorithm: SortMan.gnome,
+		options: {
+			transpiled: TranspiledSortMan.gnome as unknown as SortBase
+		}
 	}
 ];
