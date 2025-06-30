@@ -18,7 +18,7 @@
 	"scripts": {
 		"build": "npx tsup",
 		"test": "jest",
-		"check": "npx tsc",
+		"check": "npx tsc --noEmit",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
 		"prepublishOnly": "npm run build",
