@@ -1,6 +1,7 @@
 name: Benchmark
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -29,11 +30,9 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - run: npm install
-
-      - name: Print
-        uses: ROBOTofficial/print@v1
+      - uses: oven-sh/setup-bun@v2
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          output-file: ./v${{ matrix.node }}/benchmark.log
-          run: npm run benchmark
+          bun-version: latest
+
+      - run: bun install
+      - run: npm run benchmark

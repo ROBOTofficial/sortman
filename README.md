@@ -12,6 +12,10 @@ npm install sortman
 
 # Usage
 
+Please import `sortman` or `sortman/tiny`.
+
+**`sortman/tiny` was minified by terser**
+
 ```ts
 import { SortMan } from "sortman";
 
@@ -50,6 +54,7 @@ console.log(sorted);
 - Bubble sort - `SortMan.bubble`
 - Bucket sort - `SortMan.bucket`
 - Comb sort - `SortMan.comb`
+- Gnome sort - `SortMan.gnome`
 - Heap sort - `SortMan.heap`
 - Insertion sort - `SortMan.insertion`
 - Merge sort - `SortMan.merge`

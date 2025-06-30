@@ -27,4 +27,18 @@ for (const { name, algorithm } of sorts) {
 	}
 }
 
+compact(() => {
+	group(".sort", () => {
+		bench("Number array", () => {
+			numArrData.sort((a, b) => a - b);
+		});
+		bench("Number array in option", () => {
+			objectArrData.sort((a, b) => a.num - b.num);
+		});
+		bench("Object array", () => {
+			objectArrData.sort((a, b) => a.num - b.num);
+		});
+	});
+});
+
 await run();

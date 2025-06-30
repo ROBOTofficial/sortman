@@ -22,8 +22,12 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - run: npm install
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install
+      - run: npm run build
       - run: npm run lint
       - run: npm run check
-      - run: npm run build
       - run: npm test
