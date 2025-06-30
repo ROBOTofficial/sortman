@@ -12,6 +12,10 @@ npm install sortman
 
 # Usage
 
+Please import `sortman` or `sortman/tiny`.
+
+**`sortman/tiny` was minified by terser**
+
 ```ts
 import { SortMan } from "sortman";
 
