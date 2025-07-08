@@ -17,6 +17,18 @@ Please import `sortman` or `sortman/tiny`.
 **`sortman/tiny` was minified by terser**
 
 ```ts
+import { asc } from "sortman";
+
+const data = [200, 300, 100];
+
+const sorted = data.sort(asc);
+
+console.log(sorted);
+```
+
+# Usage (not default sort)
+
+```ts
 import { SortMan } from "sortman";
 
 const data = [200, 300, 100];
