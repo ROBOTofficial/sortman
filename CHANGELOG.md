@@ -1,5 +1,12 @@
 # sortman
 
+## 2.2.0
+
+### Minor Changes
+
+- bd3eab9: feat: add ascending and descending sort utility functions
+- 9cab3a1: fix: export swap utility from utils
+
 ## 2.1.0
 
 ### Minor Changes
