@@ -35,3 +35,5 @@ export class SortMan {
 		}
 	}
 }
+
+export * from "./utils/swap";
