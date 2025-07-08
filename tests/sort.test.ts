@@ -1,6 +1,7 @@
 import { describe, expect, test } from "@jest/globals";
 import { ignoreSorts, numArrData, objectArrData, sorts } from "./utils";
 import { sortCheck } from "../src/utils/array";
+import { asc, desc } from "../src";
 
 function evalTest(originalData: number[], sortedData: number[], desc?: boolean): boolean {
 	const isSameArr = (() => {
@@ -66,3 +67,25 @@ for (const { name, algorithm, options } of sorts) {
 		});
 	}
 }
+
+describe("Sort functions tests", () => {
+	test("asc", () => {
+		expect(evalTest(numArrData, numArrData.sort(asc))).toBe(true);
+		expect(
+			evalTest(
+				objectArrData.map(({ num }) => num),
+				objectArrData.sort((a, b) => asc(a.num, b.num)).map(({ num }) => num)
+			)
+		).toBe(true);
+	});
+	test("desc", () => {
+		expect(evalTest(numArrData, numArrData.sort(desc), true)).toBe(true);
+		expect(
+			evalTest(
+				objectArrData.map(({ num }) => num),
+				objectArrData.sort((a, b) => desc(a.num, b.num)).map(({ num }) => num),
+				true
+			)
+		).toBe(true);
+	});
+});
