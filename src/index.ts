@@ -9,6 +9,7 @@ import { ShellSort } from "./Sort/ShellSort";
 import { BucketSort } from "./Sort/BucketSort";
 import { CombSort } from "./Sort/CombSort";
 import { GnomeSort } from "./Sort/GnomeSort";
+import { ShakerSort } from "./Sort/ShakerSort";
 
 import type { SortOptions } from "./Sort/SortBase";
 
@@ -23,6 +24,7 @@ export class SortMan {
 	public static readonly merge = new MergeSort();
 	public static readonly quick = new QuickSort();
 	public static readonly selection = new SelectionSort();
+	public static readonly shaker = new ShakerSort();
 	public static readonly shell = new ShellSort();
 
 	public static sort<T extends number>(arr: T[]): T[];

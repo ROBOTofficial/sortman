@@ -102,5 +102,9 @@ export const sorts: Sorts = [
 	{
 		name: "Gnome sort",
 		algorithm: SortMan.gnome
+	},
+	{
+		name: "Shaker sort",
+		algorithm: SortMan.shaker
 	}
 ];
