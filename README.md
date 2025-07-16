@@ -72,6 +72,7 @@ console.log(sorted);
 - Merge sort - `SortMan.merge`
 - Quick sort - `SortMan.quick`
 - Selection sort - `SortMan.selection`
+- Shaker sort - `SortMan.shaker`
 - Shell sort - `SortMan.shell`
 
 # Options
